@@ -1,0 +1,27 @@
+<div id="game">
+  <div class="container unsolved" *ngIf="unsolvedPairs.length">
+    <div class="pair_items left">
+      <div *ngFor="let pair of unsolvedPairs" class="item" (mousedown)="leftpartSelected.emit(pair.id)"
+      (click)="assignmentStream.next({pair: pair, side: 'left'})">
+        <ng-template [ngTemplateOutlet]="leftpart_temp" 
+            [ngTemplateOutletContext]="{contextPair: pair}">
+      </ng-template>
+   </div> 
+    </div>
+    <div class="pair_items right">
+      <div *ngFor="let pair of unsolvedPairs | shuffle:test" class="item" (mousedown)="rightpartSelected.emit(pair.id)"
+      (click)="assignmentStream.next({pair: pair, side: 'right'})">           
+        <ng-template [ngTemplateOutlet]="rightpart_temp"
+          [ngTemplateOutletContext]="{contextPair: pair}">
+      </ng-template>
+   </div>
+    </div>
+  </div>
+  <div class="container solved" *ngIf="solvedPairs.length">
+    <div *ngFor="let pair of solvedPairs"  class="pair">
+      <button>{{pair.leftpart}}</button>
+      <div class="connector"></div>
+      <button>{{pair.rightpart}}</button>
+    </div>
+  </div>
+</div>

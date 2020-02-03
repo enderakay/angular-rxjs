@@ -1,0 +1,25 @@
+
+.myAnimal{
+	width: var(--mysize);
+	height: var(--mysize);
+	color: white;
+	border-radius: 50%;
+	line-height: var(--mysize);
+	text-align: center;
+    cursor: pointer;
+}
+
+.left{	
+	background-color: #68ad68;
+}
+
+
+.right{	
+	background-color: #a83295;
+}
+
+.selected{
+    background-color: grey;
+    color: #e70a0a;
+}
+
